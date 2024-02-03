@@ -1,53 +1,76 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
+    public delegate bool IsSumOfOddsOddDelegate(IEnumerable<int> numbers);
     public class ChallengesSet03
     {
         public bool ArrayContainsAFalse(bool[] vals)
-        {
-            throw new NotImplementedException();
-        }
+        => Array.Exists(vals, element => element == false);
 
-        public bool IsSumOfOddsOdd(IEnumerable<int> numbers)
-        {
-            throw new NotImplementedException();
-        }
+        public Func<IEnumerable<int>, bool> IsSumOfOddsOdd =>
+            numbers => numbers != null ? numbers.Where(num => num % 2 != 0).Sum() % 2 != 0 : false;
+        //int sumOfOdds = numbers.Where(num => num % 2 != 0).Sum();
+        //return sumOfOdds % 2 != 0; 
+
+        // Using the custom delegate type
+        public IsSumOfOddsOddDelegate IsSumOfOddsOddMethod =>
+               numbers => numbers != null ? numbers.Where(num => num % 2 != 0).Sum() % 2 != 0 : false;
 
         public bool PasswordContainsUpperLowerAndNumber(string password)
         {
-            throw new NotImplementedException();
-        }
+            if (password != null)
+            {
+                bool hasUpper = false;
+                bool hasLower = false;
+                bool hasDigit = false;
 
-        public char GetFirstLetterOfString(string val)
-        {
-            throw new NotImplementedException();
+                foreach (char c in password)
+                {
+                    if (char.IsUpper(c))
+                    {
+                        hasUpper = true;
+                    }
+                    else if (char.IsLower(c))
+                    {
+                        hasLower = true;
+                    }
+                    else if (char.IsDigit(c))
+                    { 
+                        hasDigit = true; 
+                    }
+                }
+                return hasUpper && hasLower && hasDigit;
+            } 
+            else 
+            { 
+                return false; 
+            }
         }
+        public char GetFirstLetterOfString(string val)
+            => val[0];
+        //with LINQ
+        //=> val.First();
 
         public char GetLastLetterOfString(string val)
-        {
-            throw new NotImplementedException();
-        }
+            => val[val.Length - 1];
+        // with LINQ
+        // => val.Last();
 
         public decimal Divide(decimal dividend, decimal divisor)
-        {
-            throw new NotImplementedException();
-        }
+          => (divisor != 0) ? dividend / divisor : 0;
 
         public int LastMinusFirst(int[] nums)
-        {
-            throw new NotImplementedException();
-        }
+            => nums[nums.Length - 1] - nums[0];
 
         public int[] GetOddsBelow100()
-        {
-            throw new NotImplementedException();
-        }
+            => Enumerable.Range(1, 99).Where(num => num % 2 != 0).ToArray();
 
         public void ChangeAllElementsToUppercase(string[] words)
-        {
-            throw new NotImplementedException();
-        }
+            => words.Select((word, index) => (index, word?.ToUpper())).ToList()
+                    .ForEach(tuple => words[tuple.index] = tuple.Item2);
     }
 }
