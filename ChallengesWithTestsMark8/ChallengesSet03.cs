@@ -4,10 +4,22 @@ using System.Globalization;
 using System.Linq;
 
 namespace ChallengesWithTestsMark8
-{
+{   
     public delegate bool IsSumOfOddsOddDelegate(IEnumerable<int> numbers);
     public class ChallengesSet03
     {
+        public bool IsAPalindrome(string word)
+        {
+            if (string.IsNullOrEmpty(word)) return false;
+
+            var normalizedWord = new string(word
+                .Where(char.IsLetterOrDigit)
+                .Select(char.ToLower)
+                .ToArray());
+
+            return normalizedWord.SequenceEqual(normalizedWord.Reverse());
+        }
+
         public bool ArrayContainsAFalse(bool[] vals)
         => Array.Exists(vals, element => element == false);
 

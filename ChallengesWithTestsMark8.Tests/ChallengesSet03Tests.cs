@@ -6,6 +6,23 @@ namespace ChallengesWithTestsMark8.Tests
 {
     public class ChallengesSet03Tests
     {
+        // Test whether something is a palindrome or not
+        [Theory]
+        [InlineData("racecar", true)]
+        [InlineData(null, false)]
+        [InlineData("car", false)]
+        [InlineData("kayak", true)]
+
+        public void IsAPalindromeTest(string word, bool expected)
+        {
+            // Arrange - prepare code
+            var tester = new ChallengesSet03();
+            // Act
+            var actual = tester.IsAPalindrome(word);
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
         [Theory]
         [InlineData(new bool[] { true, true, true, true }, false)]
         [InlineData(new bool[] { true, true, true }, false)]

@@ -97,9 +97,9 @@ C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\
 C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\ChallengesWithTestsMark8.Tests.AssemblyInfo.cs
 C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\ChallengesWithTestsMark8.Tests.csproj.CoreCompileInputs.cache
 C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\ChallengesWithTestsMark8.Tests.sourcelink.json
-C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\ChallengesWithTestsMark8.Tests.csproj.CopyComplete
 C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\ChallengesWithTestsMark8.Tests.dll
 C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\refint\ChallengesWithTestsMark8.Tests.dll
 C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\ChallengesWithTestsMark8.Tests.pdb
 C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\ChallengesWithTestsMark8.Tests.genruntimeconfig.cache
 C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\ref\ChallengesWithTestsMark8.Tests.dll
+C:\Users\KLYNN808\Desktop\repos\WeeklyChallenges\ChallengesWithTestsMark8.Tests\obj\Debug\net6.0\Challeng.F01045AE.Up2Date
