@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace ChallengesWithTestsMark8
 {
@@ -13,11 +14,6 @@ namespace ChallengesWithTestsMark8
                 throw new ArgumentException("n must not be zero", nameof(n));
             }
 
-            /*int remainder = startNumber % n;
-            int increment = (remainder == 0) ? n : (n - remainder);
-
-            return startNumber + increment; */
-
             return startNumber + (n - startNumber % n) % n + ((startNumber % n == 0) ? n : 0);
         }
 
@@ -25,11 +21,11 @@ namespace ChallengesWithTestsMark8
         {
             if (businesses == null) return;
 
-            foreach (var business in businesses)
+            for (var i = 0; i < businesses.Length; i++)
             {
-                if (business != null && business.TotalRevenue == 0)
+                if (businesses[i].TotalRevenue == 0)
                 {
-                    business.Name = "CLOSED";
+                    businesses[i].Name = "CLOSED";
                 }
             }
         }
@@ -45,9 +41,9 @@ namespace ChallengesWithTestsMark8
                 return true;
             }
 
-            for (int i = 0; i < numbers.Length - 1; i++)
+            for (var i = 1; i < numbers.Length; i++)
             {
-                if (numbers[i] > numbers[i + 1])
+                if (numbers[i] < numbers[i - 1])
                 {
                     return false;
                 }
@@ -80,27 +76,26 @@ namespace ChallengesWithTestsMark8
                 return string.Empty;
             }
 
-            var trimmedWords = words
-                .Where(w => !string.IsNullOrWhiteSpace(w))
-                .Select(w => w.Trim());
+            StringBuilder sentenceBuilder = new StringBuilder();
 
-            if (!trimmedWords.Any())
+            foreach (string word in words)
+            {
+                string trimmedWord = word.Trim();
+                if (trimmedWord.Length > 0)
+                {
+                    sentenceBuilder.Append(trimmedWord).Append(' ');
+                }
+            }
+
+            if (sentenceBuilder.Length == 0)
             {
                 return string.Empty;
             }
 
-            string sentence = string.Join(" ", trimmedWords);
+            sentenceBuilder.Length--;
+            sentenceBuilder.Append('.');
 
-            if (!string.IsNullOrEmpty(sentence))
-            {
-                sentence = char.ToUpper(sentence[0]) + sentence.Substring(1);
-            }
-
-            if (!sentence.EndsWith("."))
-            {
-                sentence += ".";
-            }
-            return sentence;
+            return sentenceBuilder.ToString();
         }
 
         public double[] GetEveryFourthElement(List<double> elements)
@@ -126,18 +121,15 @@ namespace ChallengesWithTestsMark8
                 return false;
             }
 
-            HashSet<int> seen = new HashSet<int>();
-
-            foreach (int num in nums)
+            for (int i = 0; i < nums.Length; i++)
             {
-                int complement = targetNumber - num;
-
-                if (seen.Contains(complement))
-                { 
-                    return true; 
+                for (int j = i + 1; j < nums.Length; j++)
+                {
+                    if (nums[i] + nums[j] == targetNumber)
+                    {
+                        return true;
+                    }
                 }
-
-                seen.Add(num);
             }
             return false;
         }
